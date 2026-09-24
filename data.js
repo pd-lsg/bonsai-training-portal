@@ -25,7 +25,7 @@ const BONSAI = {
     },
     team: [
       { role: { en: "Chef & Co-Founder", es: "Chef y Cofundador" }, name: "Jair Gudiño Chávez" },
-      { role: { en: "Co-Founder & Beverage", es: "Cofundadora y Bebidas" }, name: "Mariana Niño" },
+      { role: { en: "Front of House Legend & Co-Founder", es: "Leyenda de Servicio y Cofundadora" }, name: "Mariana Niño" },
       { role: { en: "Partner", es: "Socio" }, name: "Paul Downie" },
       { role: { en: "Partner", es: "Socio" }, name: "James Hartshorn" }
     ]
