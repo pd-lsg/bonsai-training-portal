@@ -146,6 +146,32 @@ function renderMenuDisclaimer(){
   return `<div class="note-block" style="max-width:680px;margin:30px auto 0;">${esc(t(BONSAI.meta.menuDisclaimer.en, BONSAI.meta.menuDisclaimer.es))}</div>`;
 }
 
+function renderTeaComparisonTable(){
+  const tg = BONSAI.teaComparison;
+  if(!tg) return '';
+  const rows = ['type','caffeine','looks','taste'];
+  const rowLabels = {
+    type: t('Processing','Procesamiento'), caffeine: t('Caffeine','Cafeína'),
+    looks: t('Appearance','Apariencia'), taste: t('Taste','Sabor')
+  };
+  let table = `<div class="matrixwrap"><table class="matrix"><thead><tr><th>${esc(t('Tea','Té'))}</th>`;
+  tg.rows.forEach(r => table += `<th>${esc(r.name)}</th>`);
+  table += `</tr></thead><tbody>`;
+  rows.forEach(key => {
+    table += `<tr><td>${esc(rowLabels[key])}</td>`;
+    tg.rows.forEach(r => table += `<td style="text-align:left;">${esc(t(r[key+'_en'], r[key+'_es']))}</td>`);
+    table += `</tr>`;
+  });
+  table += `</tbody></table></div>`;
+
+  return `
+    <div class="groupheading">${esc(t('Tea Comparison — Quick Reference','Comparación de Tés — Referencia Rápida'))}</div>
+    <div class="grouplede">${esc(t(tg.intro_en, tg.intro_es))}</div>
+    ${table}
+    <div class="note-block" style="max-width:680px;margin:14px auto 26px;">${esc(t(tg.tip_en, tg.tip_es))}</div>
+  `;
+}
+
 function renderIngredients(){
   let html = `
     <div class="section-head">
@@ -153,6 +179,7 @@ function renderIngredients(){
       <h1 class="pagetitle">${esc(t('Ingredient Notebook','Cuaderno de Ingredientes'))}</h1>
       <div class="subtitle">${esc(t('The rare, the obscure, and the easily-mispronounced.','Lo raro, lo poco conocido y lo difícil de pronunciar.'))}</div>
     </div>
+    ${renderTeaComparisonTable()}
     <div class="searchbar"><input type="text" id="searchbox" placeholder="${esc(t('Search ingredients…','Buscar ingredientes…'))}" oninput="filterItems(this.value)"></div>
     <div id="itemcontainer"><div class="itemlist">`;
   BONSAI.ingredients.forEach((ing, i) => {
@@ -163,7 +190,10 @@ function renderIngredients(){
         <div class="item-title"><h3>${esc(t(ing.en_t, ing.es_t))}</h3></div>
         <div class="item-chevron">▶</div>
       </div>
-      <div class="item-body"><div class="item-body-inner"><p>${esc(t(ing.en, ing.es))}</p></div></div>
+      <div class="item-body"><div class="item-body-inner">
+        <p>${esc(t(ing.en, ing.es))}</p>
+        ${ing.note_en ? `<div class="pending">${esc(t(ing.note_en, ing.note_es))}</div>` : ''}
+      </div></div>
     </div>`;
   });
   html += `</div></div>`;
