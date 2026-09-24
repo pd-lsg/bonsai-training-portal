@@ -38,8 +38,6 @@ const BONSAI = {
       en_d: "Every savory and sweet dish — ingredients, allergens, and how to talk about them.", es_d: "Cada platillo salado y dulce — ingredientes, alérgenos y cómo describirlos.", tag: "MENU" },
     { id: "beverage", icon: "🍵", en_t: "Beverage Guide", es_t: "Guía de Bebidas",
       en_d: "Tea, coffee, and refreshments — hot and iced, by the numbers.", es_d: "Té, café y bebidas refrescantes — calientes y frías, con precios.", tag: "BAR" },
-    { id: "ingredients", icon: "📖", en_t: "Ingredient Notebook", es_t: "Cuaderno de Ingredientes",
-      en_d: "The rare, obscure, or easily-mispronounced — explained properly.", es_d: "Lo raro, lo poco conocido o difícil de pronunciar — explicado bien.", tag: "EDUCATION" },
     { id: "allergens", icon: "⚠", en_t: "Allergens & Dietary", es_t: "Alérgenos y Dietas",
       en_d: "The full matrix, vegan/GF swaps, and the disclosure script.", es_d: "La matriz completa, sustituciones veganas/sin gluten y el guion de aviso.", tag: "SAFETY" },
     { id: "safety", icon: "🧊", en_t: "Food Safety & Cold Chain", es_t: "Seguridad Alimentaria y Cadena de Frío",
@@ -62,7 +60,8 @@ const BONSAI = {
   food: [
     {
       group_en: "The Smokehouse — sold by 100g", group_es: "El Ahumadero — se vende por 100g",
-      lede_en: "Hand-sliced, cured and cold-smoked on site.", lede_es: "Cortado a mano, curado y ahumado en frío en casa.",
+      lede_en: "Curing and cold-smoking are two separate steps, done in sequence. Curing comes first: salt (and sometimes sugar) draws moisture out of the fish, firming the flesh and preserving it. Cold-smoking follows — smoke applied at a low temperature (roughly 20–30°C/68–86°F) rather than cooking heat. The fish stays raw in texture — silken, translucent — while absorbing smoke flavor over hours. That's why every item below is sliced, not seared, and why \"cured and cold-smoked on site\" on the menu is actually describing a two-stage process in four words.",
+      lede_es: "El curado y el ahumado en frío son dos pasos distintos, hechos en secuencia. El curado va primero: la sal (y a veces el azúcar) extrae la humedad del pescado, firmando la carne y preservándola. El ahumado en frío sigue después — humo aplicado a baja temperatura (aproximadamente 20–30°C) en lugar de calor de cocción. El pescado conserva su textura cruda — sedosa, translúcida — mientras absorbe el sabor a humo durante horas. Por eso cada artículo de abajo se corta, no se sella, y por eso \"curado y ahumado en frío en casa\" en el menú en realidad describe un proceso de dos etapas en cuatro palabras.",
       items: [
         { name: "Bonsai Reserve", price: "220 / 100g", photo: "menu/bonsai-reserve.jpg",
           en: "Salmon, hand-sliced. Cured and cold-smoked on site. Never frozen.",
@@ -71,13 +70,15 @@ const BONSAI = {
         { name: "Smoked Steelhead Trout", price: "220 / 100g", photo: "menu/steelhead-trout.jpg",
           en: "Mexican steelhead, from Ensenada. Cured and cold-smoked on site.",
           es: "Trucha arcoíris mexicana, de Ensenada. Curada y ahumada en frío en casa.",
-          allergens: ["fish"], veganSwap: false },
+          allergens: ["fish"], veganSwap: false,
+          note_en: "Steelhead trout is a sea-run rainbow trout — same species as the freshwater fish, but one that migrates to salt water and back, like salmon. That ocean phase is why the flesh runs pale pink to orange and the flavor sits close to salmon's, at a different price point.",
+          note_es: "La trucha steelhead es una trucha arcoíris que migra al mar y regresa, igual que el salmón — misma especie que la trucha de agua dulce, pero con esa fase oceánica. Por eso su carne va de rosa pálido a naranja y su sabor se acerca al del salmón, a otro precio." },
         { name: "Jamón de Salmón", price: "360 / 100g", photo: "menu/jamon-de-salmon.jpg",
           en: "Cold-smoked salmon belly, hand-sliced paper-thin. The rarest cut on the menu.",
           es: "Ventresca de salmón ahumada en frío, cortada a mano en láminas finas. El corte más especial del menú.",
           allergens: ["fish"], veganSwap: false,
-          note_en: "Highest-priced item on the menu and currently under-photographed — a dedicated, unambiguous shot is a priority once photography resumes.",
-          note_es: "El artículo de mayor precio del menú y actualmente con poca cobertura fotográfica — una foto dedicada e inequívoca es prioridad en la próxima sesión." }
+          note_en: "The belly cut — the fattiest part of the fish, richest marbling. \"Jamón\" (ham) is a deliberate borrow from Spanish charcuterie language: sliced paper-thin, the way you'd slice a cured ham, not portioned like a fillet — the highest-priced, lowest-yield cut on the menu for exactly that reason. Also highest-priced item on the menu and currently under-photographed — a dedicated, unambiguous shot is a priority once photography resumes.",
+          note_es: "El corte de la ventresca — la parte más grasa del pescado, marmoleo más rico. \"Jamón\" es un préstamo deliberado del lenguaje de la charcutería española: cortado en láminas finísimas, como se corta un jamón curado, no porcionado como un filete — el corte de mayor precio y menor rendimiento del menú precisamente por eso. También el artículo de mayor precio del menú y actualmente con poca cobertura fotográfica — una foto dedicada e inequívoca es prioridad en la próxima sesión." }
       ]
     },
     {
@@ -86,38 +87,48 @@ const BONSAI = {
         { name: "Bonsai Gilda", price: "60", photo: "menu/bonsai-gilda.jpg",
           en: "Skewered smoked salmon, piparra pepper, smoked olives, house pickle.",
           es: "Brocheta de salmón ahumado, chile piparra, aceitunas ahumadas, encurtido de la casa.",
-          allergens: ["fish"], veganSwap: false },
+          allergens: ["fish"], veganSwap: false,
+          note_en: "A classic Basque pintxo (San Sebastián bar snack) — traditionally an anchovy, a piparra pepper, and an olive on a skewer. This version swaps in smoked salmon for the anchovy, keeping the pepper-and-olive structure that gives the dish its name. Piparra pepper: a thin, mild, tangy green pickled pepper from the Basque Country — not spicy; its job is acidity and a little grassy heat, not fire.",
+          note_es: "Un pintxo vasco clásico (bocadillo de bar de San Sebastián) — tradicionalmente una anchoa, un chile piparra y una aceituna en un palillo. Esta versión cambia la anchoa por salmón ahumado, conservando la estructura de chile y aceituna que le da al platillo su nombre. Chile piparra: un chile verde encurtido, delgado, suave y ácido, originario del País Vasco — no es picante; su función es dar acidez y un ligero toque herbal, no ardor." },
         { name: "Marinated Olives", price: "80", photo: "menu/marinated-olives.jpg", veg: true,
           en: "Kalamata, smoked Gordal and Manzanilla olives, citrus peel, house spice blend, EVOO.",
           es: "Aceitunas kalamata, gordal ahumada y manzanilla, piel de cítricos, mezcla de especias de la casa, aceite de oliva extra virgen.",
-          allergens: [], veganSwap: false },
+          allergens: [], veganSwap: false,
+          note_en: "Three olive varieties doing different work — Kalamata (dark, brine-cured, fruity), Gordal (large, meaty, mild — this one smoked), and Manzanilla (smaller, brighter, slightly bitter-edged). EVOO (extra virgin olive oil) is the first, cold-pressed extraction from olives with no heat or solvents involved — the least-processed grade, which is why it's named rather than called just \"olive oil.\"",
+          note_es: "Tres variedades de aceituna, cada una con su función — kalamata (oscura, curada en salmuera, afrutada), gordal (grande, carnosa, suave — esta ahumada) y manzanilla (más pequeña, más brillante, con un ligero toque amargo). El aceite de oliva extra virgen (AOEV) es la primera extracción en frío de las aceitunas, sin calor ni disolventes — el grado menos procesado, razón por la cual aparece con su nombre completo y no solo como \"aceite de oliva.\"" },
         { name: "Tsukemono", price: "70", photo: "menu/tsukemono.jpg", veg: true,
           en: "Japanese-style mixed pickles, made in-house.",
           es: "Encurtidos variados al estilo japonés, hechos en casa.",
-          allergens: [], veganSwap: false }
+          allergens: [], veganSwap: false,
+          note_en: "Japan's umbrella term for pickled vegetables — dozens of regional styles exist, brined, salted, or fermented. Bonsai's is a house-made mixed pickle, same register as the menu's Western pickles but signaling the Japanese half of the concept.",
+          note_es: "El término japonés general para verduras encurtidas — existen decenas de estilos regionales, en salmuera, sal o fermentados. La versión de Bonsai es un encurtido mixto hecho en casa, en el mismo registro que los encurtidos occidentales del menú, pero señalando la mitad japonesa del concepto." }
       ]
     },
     {
       group_en: "Sandwiches", group_es: "Sándwiches",
-      lede_en: "Any sandwich can be made vegan — house-smoked beet in place of fish, cashew schmear in place of dairy.",
-      lede_es: "Cualquier sándwich puede prepararse vegano — betabel ahumado en casa en lugar de pescado, untable de nuez de la india en lugar de lácteos.",
+      lede_en: "The bagel is Eastern European in origin — the earliest documented reference is a Kraków community record from 1610, describing it as a gift given to women after childbirth. What makes a bagel a bagel, technically, is the order of operations: the dough is boiled briefly before it's baked, not just baked like ordinary bread. Boiling gelatinizes the starch on the surface, which is what gives a bagel its shiny crust and dense, chewy interior — skip that step and you've made a bread roll shaped like a bagel, not an actual one. Bagels arrived in New York with Eastern European Jewish immigrants in the late 1800s, and the city built an entire craft culture around them — for most of the 20th century, New York bagel bakers operated under a powerful union that controlled recipes and training city-wide. That New York lineage is exactly what the Abuelo Bagel below is drawing on directly.",
+      lede_es: "El bagel es de origen originario de Europa del Este — la referencia documentada más antigua es un registro comunitario de Cracovia de 1610, que lo describe como un regalo dado a las mujeres después de dar a luz. Lo que técnicamente hace que un bagel sea un bagel es el orden de operaciones: la masa se hierve brevemente antes de hornearse, no solo se hornea como el pan común. Hervirla gelatiniza el almidón de la superficie, lo que le da al bagel su corteza brillante y su interior denso y masticable — saltarse ese paso da como resultado un pan con forma de bagel, no un bagel real. Los bagels llegaron a Nueva York con inmigrantes judíos de Europa del Este a finales del siglo XIX, y la ciudad construyó toda una cultura artesanal alrededor de ellos — durante la mayor parte del siglo XX, los panaderos de bagels de Nueva York operaban bajo un sindicato poderoso que controlaba las recetas y la capacitación en toda la ciudad. Esa herencia neoyorquina es precisamente en la que se basa directamente el Abuelo Bagel de abajo.",
+      note_en: "Any sandwich can be made vegan — house-smoked beet in place of fish, cashew schmear in place of dairy.",
+      note_es: "Cualquier sándwich puede prepararse vegano — betabel ahumado en casa en lugar de pescado, untable de nuez de la india en lugar de lácteos.",
       items: [
         { name: "Bagel & Schmear", price: "110", photo: "menu/bagel-schmear.jpg",
           en: "Plain or everything bagel. Choice of house schmear — smoked salmon, flecked with pieces of Bonsai Reserve; nori-sesame; or cashew (vegan).",
           es: "Bagel natural o “everything”. Elige tu untable de la casa — salmón ahumado, con trozos de Bonsai Reserve; alga nori-ajonjolí; o nuez de la india (vegano).",
           allergens: ["gluten","fish","dairy","sesame","treenut"], veganSwap: true,
-          note_en: "Allergen list covers all schmear variants — a guest ordering the cashew schmear removes dairy but not gluten or sesame (everything bagel).",
-          note_es: "La lista de alérgenos cubre todas las variantes de untable — un cliente que pide el untable de nuez de la india elimina lácteos, pero no gluten ni ajonjolí (bagel “everything”)." },
+          note_en: "Allergen list covers all schmear variants — a guest ordering the cashew schmear removes dairy but not gluten or sesame (everything bagel). Nori-sesame schmear uses nori (dried, pressed seaweed — the sheet sushi is wrapped in), ground into the cream cheese for a savory, faintly oceanic note that plays against smoked salmon rather than competing with it. The cashew schmear is the vegan option — cashews blended to a cream-cheese texture, dairy-free.",
+          note_es: "La lista de alérgenos cubre todas las variantes de untable — un cliente que pide el untable de nuez de la india elimina lácteos, pero no gluten ni ajonjolí (bagel “everything”). El untable de nori-ajonjolí usa nori (alga seca y prensada — la lámina que envuelve el sushi), molida en el queso crema para una nota salada y ligeramente marina que acompaña al salmón ahumado en lugar de competir con él. El untable de nuez de la india es la opción vegana — nuez de la india licuada hasta obtener una textura de queso crema, sin lácteos." },
         { name: "Abuelo Bagel", price: "220", photo: "menu/abuelo-bagel.jpg",
           en: "Bagel, cold-smoked salmon or trout, nori-sesame cream cheese, tomato, red onion, capers, house pickle.",
           es: "Bagel, salmón o trucha ahumados en frío, queso crema de nori y ajonjolí, jitomate, cebolla morada, alcaparras, encurtidos de la casa.",
-          allergens: ["gluten","fish","dairy","sesame"], veganSwap: false },
+          allergens: ["gluten","fish","dairy","sesame"], veganSwap: false,
+          note_en: "\"Abuelo\" is the chef's grandfather — he grew up in New York, and this is his order: lox, cream cheese, tomato, onion, capers, on a bagel. \"Lox\" is New York deli shorthand for smoked salmon — if a guest asks why this one has a name instead of just a list of ingredients, that's the story: it's chef Jair's own family order, filtered through Bonsai's own lens (nori-sesame schmear, cold-smoked trout as an option).",
+          note_es: "\"Abuelo\" es el abuelo del chef — creció en Nueva York, y esta es su orden: lox, queso crema, jitomate, cebolla, alcaparras, en un bagel. \"Lox\" es el término neoyorquino de las delicatessen para el salmón ahumado — si un cliente pregunta por qué este platillo tiene nombre propio en lugar de solo una lista de ingredientes, esa es la historia: es la orden familiar del chef Jair, filtrada a través de la mirada de Bonsai (untable de nori-ajonjolí, trucha ahumada en frío como opción)." },
         { name: "Smoked Fish Toast", price: "150", photo: "menu/smoked-fish-toast.jpg",
           en: "Choice of sourdough, gluten-free, or protein bread. Cold-smoked salmon or trout, pickled mustard grains, radish, house pickles, pickled wax pepper.",
           es: "Elige pan de masa madre, sin gluten, o de proteína. Salmón o trucha ahumados en frío, mostaza en grano encurtida, rábano, encurtidos de la casa, chile güerito encurtido.",
           allergens: ["fish","mustard"], veganSwap: false,
-          note_en: "The only savory item with a built-in gluten-free bread option — flag this to guests who ask before defaulting to “we don't have GF.”",
-          note_es: "El único platillo salado con opción de pan sin gluten incorporada — menciónalo a los clientes que pregunten, antes de responder que no hay opción sin gluten." }
+          note_en: "The only savory item with a built-in gluten-free bread option — flag this to guests who ask before defaulting to “we don't have GF.” Protein bread is higher-protein, lower-carbohydrate (often made with added egg white, seed, or legume flour) — worth explaining rather than assuming a guest already knows. Pickled mustard grains: whole mustard seeds brined rather than ground into a paste, so they pop rather than spread — more texture and tang than heat. Pickled wax pepper (güerito): a pale-yellow, mild-to-medium chile, brined, not grown to be hot — named as a chile specifically so it isn't mistaken for a peppercorn.",
+          note_es: "El único platillo salado con opción de pan sin gluten incorporada — menciónalo a los clientes que pregunten, antes de responder que no hay opción sin gluten. El pan de proteína tiene más proteína y menos carbohidratos (a menudo con clara de huevo, semillas o harina de leguminosas añadidas) — vale la pena explicarlo en lugar de asumir que el cliente ya lo sabe. Mostaza en grano encurtida: semillas de mostaza enteras en salmuera en lugar de molidas en pasta, para que estallen en boca en lugar de untarse — más textura y acidez que picor. Chile güerito encurtido: un chile amarillo pálido, de picor suave a medio, encurtido, no cultivado para ser picante — nombrado como chile específicamente para que no se confunda con una pimienta en grano." }
       ]
     },
     {
@@ -132,7 +143,9 @@ const BONSAI = {
         { name: "Smoked Burrata", price: "140", photo: "menu/smoked-burrata.jpg",
           en: "Valladolid burrata, tomato, pickled mustard grains, EVOO, sea salt, black pepper, sourdough.",
           es: "Burrata de Valladolid, jitomate, mostaza en grano encurtida, aceite de oliva extra virgen, sal de mar, pimienta negra, pan de masa madre.",
-          allergens: ["dairy","gluten","mustard"], veganSwap: false }
+          allergens: ["dairy","gluten","mustard"], veganSwap: false,
+          note_en: "Burrata is a fresh Italian cheese — a mozzarella shell around a soft, creamy interior of shredded curd and cream (\"burro,\" butter, is the root of the name). Bonsai's is made in Valladolid, Yucatán — a local dairy producer, not imported from Puglia, the Italian region burrata traditionally comes from. Pickled mustard grains: whole mustard seeds brined rather than ground — see Smoked Fish Toast for the full note.",
+          note_es: "La burrata es un queso italiano fresco — una envoltura de mozzarella alrededor de un interior suave y cremoso de cuajada deshebrada y crema (\"burro\" — mantequilla — es la raíz del nombre). La de Bonsai se elabora en Valladolid, Yucatán — un productor lácteo local, no importada de Puglia, la región italiana de donde tradicionalmente proviene la burrata. Mostaza en grano encurtida: semillas de mostaza enteras en salmuera en lugar de molidas — ver Smoked Fish Toast para la nota completa." }
       ]
     },
     {
@@ -141,13 +154,15 @@ const BONSAI = {
         { name: "Matcha Chia Pudding", price: "95", photo: "menu/matcha-chia-pudding.jpg",
           en: "Overnight chia, coconut milk, heritage matcha, yogurt, fresh fruit.",
           es: "Chía reposada toda la noche, leche de coco, matcha de origen, yoghurt griego, fruta fresca.",
-          allergens: ["dairy"], veganSwap: false },
+          allergens: ["dairy"], veganSwap: false,
+          note_en: "Same Kokoro, first-harvest, Shizuoka matcha used in the tea program — see the Beverage Guide's Tea section for the full explanation of what makes it matcha rather than just green tea powder.",
+          note_es: "El mismo matcha Kokoro, primera cosecha, Shizuoka que se usa en el programa de té — ver la sección de Té en la Guía de Bebidas para la explicación completa de qué lo hace matcha y no solo té verde en polvo." },
         { name: "Black Sesame Cookie", price: "60", photo: "menu/black-sesame-cookie.jpg",
           en: "Black sesame, sea salt flakes.",
           es: "Ajonjolí negro, flor de sal.",
-          allergens: ["sesame","gluten","egg"], veganSwap: false,
-          note_en: "Gluten and egg are a standard-recipe inference for a cookie — confirm with kitchen; not stated on the printed menu.",
-          note_es: "Gluten y huevo son una inferencia de receta estándar para una galleta — confirmar con cocina; no aparece en el menú impreso." }
+          allergens: ["sesame","gluten","egg","dairy"], veganSwap: false,
+          note_en: "Confirmed recipe: flour, egg, and butter, with black sesame seeds and sea salt flakes — a standard shortbread-style base, not a special or altered recipe. Allergen list updated to include dairy (butter) alongside gluten, egg, and sesame.",
+          note_es: "Receta confirmada: harina, huevo y mantequilla, con ajonjolí negro y flor de sal — una base tipo shortbread estándar, sin alteraciones. La lista de alérgenos se actualizó para incluir lácteos (mantequilla) junto con gluten, huevo y ajonjolí." }
       ]
     }
   ],
@@ -163,27 +178,40 @@ const BONSAI = {
       items: [
         { name: "Matcha", hot: "80", iced: "85", photo: "menu/matcha.jpg",
           en: "First harvest, Shizuoka — stone-ground, full-bodied, naturally sweet.",
-          es: "Primera cosecha, Shizuoka — molido en piedra, de cuerpo pleno, naturalmente dulce." },
+          es: "Primera cosecha, Shizuoka — molido en piedra, de cuerpo pleno, naturalmente dulce.",
+          note_en: "Highest caffeine of anything on this menu. Shade-grown for 2–4 weeks before harvest — that's what makes it matcha rather than powdered green tea, forcing more chlorophyll and the amino acid L-theanine into the leaf, which is where the sweetness and lack of bitterness come from. Steamed, dried into sheets (tencha), de-stemmed, then stone-ground. \"First harvest\" (ichibancha) is the earliest, most prized picking of the year. Sourced from Kokoro, a supplier based in Shizuoka — one of Japan's oldest tea-growing regions. Whole leaf is consumed, not steeped and discarded — which is also why the caffeine carries through so strongly.",
+          note_es: "La cafeína más alta de todo el menú. Cultivado a la sombra durante 2 a 4 semanas antes de la cosecha — eso es lo que lo convierte en matcha y no solo en té verde en polvo, forzando a la planta a producir más clorofila y más del aminoácido L-teanina, de donde viene el dulzor y la falta de amargor. Cocido al vapor, secado en láminas (tencha), sin tallo, y luego molido en piedra. \"Primera cosecha\" (ichibancha) es la recolección más temprana y apreciada del año. Proviene de Kokoro, un proveedor con sede en Shizuoka — una de las regiones productoras de té más antiguas de Japón. Se consume la hoja entera, no se remoja y se desecha — razón por la cual la cafeína se transmite con tanta fuerza." },
         { name: "Matcha Latte", hot: "90", iced: "95", photo: "menu/matcha-latte.jpg",
           en: "First harvest, Shizuoka, smoothed with steamed milk.",
-          es: "Primera cosecha, Shizuoka, suavizado con leche vaporizada." },
+          es: "Primera cosecha, Shizuoka, suavizado con leche vaporizada.",
+          note_en: "Same Kokoro, first-harvest, Shizuoka matcha as above, with steamed milk — see Matcha for the full explanation.",
+          note_es: "El mismo matcha Kokoro, primera cosecha, Shizuoka de arriba, con leche vaporizada — ver Matcha para la explicación completa." },
         { name: "Hojicha", hot: "70", iced: "75", photo: "menu/hojicha.jpg",
           en: "Roasted green tea — toasty, nutty, naturally low in caffeine.",
-          es: "Té verde tostado — notas tostadas y de nuez, naturalmente bajo en cafeína." },
+          es: "Té verde tostado — notas tostadas y de nuez, naturalmente bajo en cafeína.",
+          note_en: "Low caffeine — third of four. Starts as the same leaf as sencha, roasted at high heat afterward — a Maillard reaction, the same browning chemistry as toasting bread. That roast converts the leaf's grassy notes into toasty, nutty, caramel ones, and breaks down most of the caffeine. Visual tell: brewed hojicha is reddish-brown, not green — worth a heads-up if a guest expects \"green tea\" to look green.",
+          note_es: "Cafeína baja — tercero de los cuatro. Comienza como la misma hoja que el sencha, tostada a alto calor después — una reacción de Maillard, la misma química de dorado que al tostar pan. Ese tostado convierte las notas herbales de la hoja en algo tostado, con notas de nuez y caramelo, y descompone la mayor parte de la cafeína. Dato visual: el hojicha preparado es de color café rojizo, no verde — vale la pena avisar si el cliente espera que un \"té verde\" se vea verde." },
         { name: "Hojicha Latte", hot: "80", iced: "85", photo: "menu/hojicha-latte.jpg",
           en: "Roasted green tea, toasted-caramel warmth with steamed milk.",
-          es: "Té verde tostado, calidez de caramelo tostado con leche vaporizada." },
+          es: "Té verde tostado, calidez de caramelo tostado con leche vaporizada.",
+          note_en: "Same hojicha as above, with steamed milk — see Hojicha for the full explanation.",
+          note_es: "El mismo hojicha de arriba, con leche vaporizada — ver Hojicha para la explicación completa." },
         { name: "Sencha", hot: "30", iced: "35", photo: "menu/sencha.jpg",
           en: "Japanese green tea, brewed at 80°C — light, grassy, clean umami finish.",
-          es: "Té verde japonés, preparado a 80°C — ligero, herbal, con final umami limpio." },
+          es: "Té verde japonés, preparado a 80°C — ligero, herbal, con final umami limpio.",
+          note_en: "Second-highest caffeine of the four. Grown in full sun (unlike matcha, which is shaded), then steamed rather than pan-fired shortly after picking — the main thing separating Japanese green teas from Chinese ones, locking in a bright, grassy, umami-forward flavor. Brewed at 80°C, below boiling — full boiling water pulls out excess tannins and turns the cup bitter and astringent, the most common way to ruin a cup of sencha on the floor.",
+          note_es: "La segunda cafeína más alta de los cuatro. Cultivado a pleno sol (a diferencia del matcha, que se cultiva a la sombra), y luego cocido al vapor en lugar de tostado en sartén poco después de cortarse — la principal diferencia entre los tés verdes japoneses y los chinos, que fija un sabor brillante, herbal y con marcado umami. Se prepara a 80°C, por debajo del hervor — el agua hirviendo extrae taninos de más y vuelve la taza amarga y astringente, la forma más común de arruinar una taza de sencha en el mostrador." },
         { name: "Mugicha", hot: "—", iced: "30", photo: "menu/mugicha.jpg",
           en: "Toasted barley, cold brew — nutty, naturally caffeine-free.",
-          es: "Cebada tostada, preparado en frío — con notas de nuez, naturalmente sin cafeína." }
+          es: "Cebada tostada, preparado en frío — con notas de nuez, naturalmente sin cafeína.",
+          note_en: "No caffeine — it isn't tea. Roasted barley grains, cold-brewed — no tea leaf at all, since it doesn't come from the tea plant (Camellia sinensis) in the first place. The one item on the tea list safe to recommend without a caffeine question. A summer staple across Japan; the menu's own note calls it \"Japan's answer to a hot afternoon,\" which Tulum has no shortage of.",
+          note_es: "Sin cafeína — no es té. Granos de cebada tostada, preparados en frío — no lleva hoja de té, ya que no proviene de la planta del té (Camellia sinensis). El único té de la carta que se puede recomendar sin preguntar por la cafeína. Un clásico del verano en todo Japón; el propio menú lo describe como \"la respuesta japonesa a una tarde calurosa,\" de las que no faltan en Tulum." }
       ]
     },
     {
       group_en: "Coffee", group_es: "Café",
-      lede_en: "Locally roasted Arabica, Veracruz.", lede_es: "Arábica de tueste local, Veracruz.",
+      lede_en: "Locally roasted Arabica, Veracruz — one of Mexico's oldest coffee-growing states, with a coffee tradition dating back over 200 years, concentrated in highland areas where altitude and cloud cover suit Arabica (a more delicate, higher-altitude species than the hardier, more bitter Robusta). \"Locally roasted\" means roasted close to point of service rather than shipped pre-roasted from abroad.",
+      lede_es: "Arábica de tueste local, Veracruz — uno de los estados productores de café más antiguos de México, con una tradición cafetalera de más de 200 años, concentrada en zonas de altura donde la altitud y la nubosidad favorecen al arábica (una especie más delicada y de mayor altitud que la más resistente y amarga robusta). \"Tueste local\" significa que se tuesta cerca del punto de servicio, en lugar de llegar pre-tostado desde el extranjero.",
       items: [
         { name: "Espresso — Single", hot: "40", iced: "45", en: "", es: "" },
         { name: "Espresso — Double", hot: "80", iced: "85", en: "", es: "" },
@@ -197,10 +225,18 @@ const BONSAI = {
       group_en: "To Refresh", group_es: "Para Refrescar", lede_en: "", lede_es: "",
       items: [
         { name: "Coconut Water", price: "50", en: "Agua de Coco", es: "" },
-        { name: "Bonsai Still Water", price: "30", en: "Puebla Springs", es: "" },
-        { name: "Bonsai Sparkling Water", price: "40", en: "Puebla Springs", es: "" },
-        { name: "Pickle Shot", price: "10", en: "House pickle brine.", es: "Shot de Encurtido — salmuera de encurtido de la casa." },
-        { name: "Pickle Spritz", price: "50", en: "House pickle brine, soda water.", es: "Spritz de Encurtido — salmuera de encurtido de la casa, agua con gas." }
+        { name: "Bonsai Still Water", price: "30", en: "Puebla Springs", es: "",
+          note_en: "Puebla Springs is a named source, not an unbranded bottle — which is why it appears on the menu with that name rather than just \"water.\" Worth knowing if a guest asks what they're being served.",
+          note_es: "Puebla Springs es una fuente con nombre, no una botella sin marca — por eso aparece en el menú con ese nombre en lugar de solo \"agua.\" Vale la pena saberlo si un cliente pregunta qué se le está sirviendo." },
+        { name: "Bonsai Sparkling Water", price: "40", en: "Puebla Springs", es: "",
+          note_en: "Same named source as Bonsai Still Water — see that entry above.",
+          note_es: "La misma fuente con nombre que el agua natural Bonsai — ver esa entrada arriba." },
+        { name: "Pickle Shot", price: "10", en: "House pickle brine.", es: "Shot de Encurtido — salmuera de encurtido de la casa.",
+          note_en: "Same brine as the Tsukemono and the sandwich pickles — the working liquid from the same house pickle batch, not a separate product. Vinegar and salt brines like this are a favorite for gut health and rehydration, and carry an old reputation as a hangover fix — a good, low-stakes line to offer a guest trying it for the first time.",
+          note_es: "La misma salmuera que el Tsukemono y los encurtidos de los sándwiches — el líquido de trabajo del mismo lote de encurtidos de la casa, no un producto aparte. Las salmueras de vinagre y sal como esta son populares para la salud digestiva y la rehidratación, y tienen fama de remedio para la cruda — una buena línea, sin presión, para ofrecerle a un cliente que lo prueba por primera vez." },
+        { name: "Pickle Spritz", price: "50", photo: "menu/pickle-spritz.jpg", en: "House pickle brine, soda water.", es: "Spritz de Encurtido — salmuera de encurtido de la casa, agua con gas.",
+          note_en: "Same brine as the Pickle Shot, lengthened with soda water — see that entry above for the gut-health and hangover-cure reputation worth mentioning to a curious guest.",
+          note_es: "La misma salmuera que el Pickle Shot, alargada con agua con gas — ver esa entrada arriba para la fama de beneficio digestivo y remedio para la cruda, buena de mencionar a un cliente curioso." }
       ]
     },
     {
@@ -242,78 +278,11 @@ const BONSAI = {
         looks_en: "Amber, coffee-like color", looks_es: "Color ámbar, similar al café",
         taste_en: "Nutty, roasted-grain, no astringency", taste_es: "Notas de nuez y grano tostado, sin astringencia" }
     ],
+    caffeineRank_en: "Caffeine, highest to lowest: Matcha → Sencha → Hojicha → Mugicha (none — it isn't tea).",
+    caffeineRank_es: "Cafeína, de mayor a menor: Matcha → Sencha → Hojicha → Mugicha (ninguna — no es té).",
     tip_en: "Two questions come up constantly — have the one-line answer ready. \"What's the difference between sencha and hojicha?\" Same leaf, different roast. \"Is hojicha green tea?\" Botanically yes — but it's roasted after processing, so it neither looks nor tastes like one; that distinction is worth more to a guest than the botanical answer.",
     tip_es: "Dos preguntas surgen constantemente — ten lista la respuesta en una línea. \"¿Cuál es la diferencia entre el sencha y el hojicha?\" La misma hoja, distinto tostado. \"¿El hojicha es té verde?\" Botánicamente sí — pero se tuesta después de procesarse, así que no se ve ni sabe como uno; esa distinción vale más para el cliente que la respuesta botánica."
   },
-
-  // -----------------------------------------------------------------------
-  // INGREDIENT NOTEBOOK — educational entries
-  // -----------------------------------------------------------------------
-  ingredients: [
-    { term: "Cold-Smoking", en_t: "Cold-Smoking", es_t: "Ahumado en Frío",
-      en: "Curing fish with smoke at a low temperature (roughly 20–30°C / 68–86°F) rather than cooking it with heat. The fish stays raw in texture — silken, translucent — while picking up smoke flavor over hours. It's the technique behind every item in The Smokehouse, and the reason Bonsai's salmon and trout are sliced, not seared.",
-      es: "Curar pescado con humo a baja temperatura (aproximadamente 20–30°C) en lugar de cocinarlo con calor. El pescado conserva su textura cruda — sedosa, translúcida — mientras absorbe el sabor a humo durante horas. Es la técnica detrás de cada artículo en El Ahumadero, y la razón por la que el salmón y la trucha de Bonsai se cortan, no se sellan." },
-    { term: "Curing", en_t: "Curing", es_t: "Curado",
-      en: "The step before smoking: salt (and sometimes sugar) draws moisture out of the fish, firming the flesh and preserving it. Bonsai cures on site before cold-smoking — it's what \"cured and cold-smoked on site\" on the menu is telling the guest, in two words, is a two-stage process.",
-      es: "El paso antes de ahumar: la sal (y a veces el azúcar) extrae la humedad del pescado, firmando la carne y preservándola. Bonsai cura en casa antes de ahumar en frío — es lo que \"curado y ahumado en frío en casa\" le dice al cliente, en dos palabras, que en realidad es un proceso de dos etapas." },
-    { term: "Steelhead Trout", en_t: "Steelhead Trout", es_t: "Trucha Arcoíris (Steelhead)",
-      en: "A sea-run rainbow trout — same species as rainbow trout, but one that migrates to salt water and back, like salmon. That ocean phase is why its flesh runs pale pink to orange and its flavor sits close to salmon's, at a different price point. Bonsai's comes from Ensenada, Baja California.",
-      es: "Una trucha arcoíris que migra al mar y regresa, igual que el salmón — misma especie que la trucha arcoíris de agua dulce, pero con esa fase oceánica. Por eso su carne va de rosa pálido a naranja y su sabor se acerca al del salmón, a otro precio. La de Bonsai viene de Ensenada, Baja California." },
-    { term: "Jamón de Salmón / Ventresca", en_t: "Jamón de Salmón (Belly)", es_t: "Jamón de Salmón (Ventresca)",
-      en: "The belly cut — the fattiest part of the fish, where the marbling runs richest. \"Jamón\" (ham) is a deliberate borrow from Spanish charcuterie language: sliced paper-thin, the way you'd slice a cured ham, not portioned like a fillet. It's the highest-priced, lowest-yield cut on the menu for exactly that reason.",
-      es: "El corte de la ventresca — la parte más grasa del pescado, donde el marmoleo es más rico. \"Jamón\" es un préstamo deliberado del lenguaje de la charcutería española: cortado en láminas finísimas, como se corta un jamón curado, no porcionado como un filete. Es el corte de mayor precio y menor rendimiento del menú precisamente por eso." },
-    { term: "Gilda", en_t: "Gilda", es_t: "Gilda",
-      en: "A classic Basque pintxo (San Sebastián bar snack): traditionally an anchovy, a piparra pepper, and an olive on a skewer — sharp, salty, savory in three bites. Bonsai's version swaps in smoked salmon for the anchovy, keeping the pepper-and-olive structure that gives the dish its name and its bite.",
-      es: "Un pintxo vasco clásico (bocadillo de bar de San Sebastián): tradicionalmente una anchoa, un chile piparra y una aceituna en un palillo — intenso, salado, sabroso en tres bocados. La versión de Bonsai cambia la anchoa por salmón ahumado, conservando la estructura de chile y aceituna que le da al platillo su nombre y su carácter." },
-    { term: "Piparra Pepper", en_t: "Piparra Pepper", es_t: "Chile Piparra",
-      en: "A thin, mild, tangy green pickled pepper from the Basque Country — the standard partner to olives and anchovy in a gilda. Not spicy; its job is acidity and a little grassy heat, not fire.",
-      es: "Un chile verde encurtido, delgado, suave y ácido, originario del País Vasco — el compañero clásico de las aceitunas y la anchoa en una gilda. No es picante; su función es dar acidez y un ligero toque herbal, no ardor." },
-    { term: "Tsukemono", en_t: "Tsukemono", es_t: "Tsukemono",
-      en: "Japan's umbrella term for pickled vegetables — there are dozens of regional styles, brined, salted, or fermented. Bonsai's version is a house-made mixed pickle, the same register as the menu's Western pickles but signaling the Japanese half of the concept's identity.",
-      es: "El término japonés general para verduras encurtidas — existen decenas de estilos regionales, en salmuera, sal o fermentados. La versión de Bonsai es un encurtido mixto hecho en casa, en el mismo registro que los encurtidos occidentales del menú, pero señalando la mitad japonesa de la identidad del concepto." },
-    { term: "Nori", en_t: "Nori", es_t: "Nori",
-      en: "Dried, pressed seaweed — the sheet used to wrap sushi rolls, and, ground or blended into a schmear, a savory, faintly oceanic note that plays against smoked salmon rather than competing with it. It's an allium- and dairy-free way to add umami depth.",
-      es: "Alga marina seca y prensada — la lámina que envuelve los rollos de sushi, y, molida o mezclada en un untable, aporta una nota salada y ligeramente marina que acompaña al salmón ahumado en lugar de competir con él. Es una forma de sumar profundidad umami sin allium ni lácteos." },
-    { term: "Matcha — Kokoro, First Harvest, Shizuoka", en_t: "Matcha — Kokoro, First Harvest, Shizuoka", es_t: "Matcha — Kokoro, Primera Cosecha, Shizuoka",
-      en: "Stone-ground powder from shade-grown tea leaves, harvested once a year. Shading the plant for 2–4 weeks before picking is what makes it matcha rather than just powdered green tea — it forces the plant to produce more chlorophyll (the deep green color) and more of the amino acid L-theanine, which is where matcha's characteristic umami sweetness and lack of bitterness come from. After picking, the leaves are steamed, dried flat into sheets called tencha, de-stemmed and de-veined, then stone-ground into the fine powder that gets whisked. \"First harvest\" (ichibancha) is the earliest and most prized picking of the year — sweeter, less bitter, higher in those same amino acids than later pickings. Sourced from Kokoro, a supplier based in Shizuoka, on Japan's Pacific coast — one of the country's oldest and most respected tea-growing regions. Whisked to order, never from a mix — the whole leaf is consumed (not steeped and discarded like other teas), which is also why it carries the most caffeine of anything on the beverage menu. Worth having the supplier name ready — it's the kind of detail a genuinely curious guest asks for, and \"Kokoro, from Shizuoka\" answers it precisely.",
-      es: "Polvo molido en piedra a partir de hojas de té cultivadas a la sombra, cosechadas una vez al año. Cubrir la planta durante 2 a 4 semanas antes de la cosecha es lo que la convierte en matcha y no solo en té verde en polvo — obliga a la planta a producir más clorofila (el verde intenso) y más del aminoácido L-teanina, de donde viene el característico dulzor umami del matcha y su falta de amargor. Después de cortarse, las hojas se cuecen al vapor, se secan en láminas planas llamadas tencha, se les quita el tallo y la vena, y se muelen en piedra hasta obtener el polvo fino que se bate. \"Primera cosecha\" (ichibancha) es la recolección más temprana y apreciada del año — más dulce, menos amarga, con más de esos mismos aminoácidos que las cosechas posteriores. Proviene de Kokoro, un proveedor con sede en Shizuoka, en la costa del Pacífico de Japón — una de las regiones productoras de té más antiguas y respetadas del país. Batido al momento, nunca de una mezcla — se consume la hoja entera (no se remoja y se desecha como otros tés), razón por la cual es también el que más cafeína aporta de toda la carta de bebidas. Vale la pena tener el nombre del proveedor a la mano — es justo el tipo de detalle que pide un cliente realmente interesado, y \"Kokoro, de Shizuoka\" lo responde con precisión." },
-    { term: "Hojicha", en_t: "Hojicha", es_t: "Hojicha",
-      en: "Roasted green tea — it starts life as the same leaf as sencha (sun-grown, steamed, dried), but is pan- or drum-roasted at high heat afterward. That roast is the entire difference: it's a Maillard reaction, the same browning chemistry as toasting bread or roasting coffee, and it converts the leaf's grassy, vegetal, chlorophyll-driven notes into something toasty, nutty, and caramel-like. The high heat also breaks down most of the caffeine, which is why hojicha sits well below matcha or sencha and is comfortable for guests who are caffeine-sensitive or drinking late in the day. Visual tell for staff: brewed hojicha is reddish-brown, not green — if a guest expects \"green tea\" to look green, this is worth a heads-up before it's poured.",
-      es: "Té verde tostado — comienza como la misma hoja que el sencha (cultivada al sol, cocida al vapor, secada), pero se tuesta después a alto calor en sartén o tambor. Ese tostado es toda la diferencia: es una reacción de Maillard, la misma química de dorado que ocurre al tostar pan o café, y convierte las notas herbales, vegetales y de clorofila de la hoja en algo tostado, con notas de nuez y caramelo. El calor alto también descompone la mayor parte de la cafeína, por lo que el hojicha queda muy por debajo del matcha o el sencha, y es una buena opción para clientes sensibles a la cafeína o que lo piden tarde en el día. Dato visual para el equipo: el hojicha preparado es de color café rojizo, no verde — si un cliente espera que un \"té verde\" se vea verde, vale la pena avisarle antes de servirlo." },
-    { term: "Sencha", en_t: "Sencha", es_t: "Sencha",
-      en: "Japan's everyday green tea — grown in full sun (unlike matcha, which is shaded), then steamed rather than pan-fired shortly after picking. That steaming step is the main thing that separates Japanese green teas from Chinese ones: it halts oxidation almost instantly and locks in a bright, grassy, umami-forward flavor rather than the toastier, more oxidized character of a pan-fired tea. The leaves are then rolled into the thin, needle-like shape sencha is sold in. Brewed loose-leaf at a lower temperature than boiling (80°C) — full boiling water pulls out excess tannins and turns the cup bitter and astringent, which is the most common way to ruin a cup of sencha on the floor.",
-      es: "El té verde cotidiano de Japón — cultivado a pleno sol (a diferencia del matcha, que se cultiva a la sombra), y luego cocido al vapor en lugar de tostado en sartén poco después de cortarse. Ese paso de vapor es la principal diferencia entre los tés verdes japoneses y los chinos: detiene la oxidación casi de inmediato y fija un sabor brillante, herbal y con marcado umami, en lugar del carácter más tostado y oxidado de un té frito en sartén. Después, las hojas se enrollan en la forma delgada, tipo aguja, en la que se vende el sencha. Se prepara en hoja suelta a una temperatura menor al hervor (80°C) — el agua hirviendo extrae taninos de más y vuelve la taza amarga y astringente, la forma más común de arruinar una taza de sencha en el mostrador." },
-    { term: "Mugicha", en_t: "Mugicha", es_t: "Mugicha",
-      en: "Roasted barley tea, cold-brewed — no tea leaf at all, and no caffeine, since it isn't made from the tea plant (Camellia sinensis) in the first place. Roasted whole barley grains are steeped, which is where its amber color and nutty, roasted-grain flavor come from — closer in character to a light, decaffeinated coffee than to any of the other three teas. A summer staple across Japan, poured over ice; the menu's own note calls it \"Japan's answer to a hot afternoon,\" which Tulum has no shortage of. It's the one item on the tea list safe to recommend without a caffeine question — useful to know before a guest asks.",
-      es: "Té de cebada tostada, preparado en frío — no lleva hoja de té y no tiene cafeína, ya que no proviene de la planta del té (Camellia sinensis). Se prepara con granos enteros de cebada tostada, de donde viene su color ámbar y su sabor a nuez y grano tostado — más cercano en carácter a un café ligero descafeinado que a cualquiera de los otros tres tés. Un clásico del verano en todo Japón, servido con hielo; el propio menú lo describe como \"la respuesta japonesa a una tarde calurosa,\" de las que no faltan en Tulum. Es el único té de la carta que se puede recomendar sin preguntar por la cafeína — útil saberlo antes de que el cliente pregunte." },
-    { term: "Burrata (Valladolid)", en_t: "Burrata (Valladolid)", es_t: "Burrata (Valladolid)",
-      en: "A fresh Italian cheese with a mozzarella shell and a soft, creamy interior of shredded curd and cream (\"burro\" — butter — is the root of the name). Bonsai's is made in Valladolid, Yucatán, not imported — a local dairy producer, not the Puglia region burrata traditionally comes from.",
-      es: "Un queso italiano fresco con una envoltura de mozzarella y un interior suave y cremoso de cuajada deshebrada y crema (\"burro\" — mantequilla — es la raíz del nombre). La de Bonsai se elabora en Valladolid, Yucatán, no es importada — un productor lácteo local, no la región de Puglia de donde tradicionalmente proviene la burrata." },
-    { term: "Furikake", en_t: "Furikake (Salmon)", es_t: "Furikake (de Salmón)",
-      en: "A dry Japanese seasoning blend — classically sesame, seaweed, and dried fish flakes — scattered over rice. Bonsai's retail-case version is built around salmon, a condiment for guests to take home rather than a menu item.",
-      es: "Una mezcla seca de condimentos japoneses — clásicamente ajonjolí, alga y hojuelas de pescado seco — que se espolvorea sobre el arroz. La versión de la vitrina de Bonsai está hecha a base de salmón, un condimento para llevar a casa más que un platillo del menú." },
-    { term: "Balik Cut", en_t: "Balik Cut", es_t: "Corte Balik",
-      en: "The premium upper-center loin of the salmon, trimmed of belly fat and bloodline — the single best-marbled, most consistent section of the fish. \"Balik\" is a Turkish/Russian smoked-salmon term for exactly this cut; on Bonsai's retail roadmap as a future bestseller.",
-      es: "El lomo superior central del salmón, recortado de la grasa de la ventresca y la línea de sangre — la sección del pescado con el marmoleo más rico y consistente. \"Balik\" es un término turco/ruso para el salmón ahumado que designa precisamente este corte; está en el mapa de productos futuros de la vitrina de Bonsai como posible más vendido." },
-    { term: "Caviar de Monte", en_t: "Caviar de Monte", es_t: "Caviar de Monte",
-      en: "Sourced and resold, not produced in-house — worth knowing the distinction if a guest asks whether Bonsai cures its own caviar (it doesn't; the smokehouse craft is the fish, not the roe).",
-      es: "Se compra y se revende, no se produce en casa — vale la pena conocer esta distinción si un cliente pregunta si Bonsai cura su propio caviar (no lo hace; el oficio del ahumadero es el pescado, no la hueva)." },
-    { term: "EVOO", en_t: "Extra Virgin Olive Oil (EVOO)", es_t: "Aceite de Oliva Extra Virgen (AOEV)",
-      en: "The first, cold-pressed extraction from olives, with no heat or chemical solvents involved — the highest, least-processed grade of olive oil, and the reason it appears by name rather than just \"olive oil\" on the menu.",
-      es: "La primera extracción en frío de las aceitunas, sin calor ni disolventes químicos — el grado más alto y menos procesado del aceite de oliva, y la razón por la que aparece por su nombre completo y no solo como \"aceite de oliva\" en el menú." },
-    { term: "Pickled Wax Pepper", en_t: "Pickled Wax Pepper", es_t: "Chile Güerito Encurtido",
-      en: "A pale-yellow, mild-to-medium chile (güerito) — brined, not grown to be hot. Renamed on the menu from \"pickled pepper\" specifically to make clear it's a chili, not a peppercorn.",
-      es: "Un chile amarillo pálido (güerito), de picor suave a medio — encurtido, no cultivado para ser picante. Renombrado en el menú de \"pickled pepper\" precisamente para dejar claro que es un chile, no una pimienta en grano." },
-    { term: "Veracruz Arabica Coffee", en_t: "Veracruz Arabica Coffee", es_t: "Café Arábica de Veracruz",
-      en: "Arabica beans, roasted locally, grown in Veracruz — one of Mexico's oldest coffee-growing states, with a coffee tradition dating back over 200 years, concentrated in highland areas where altitude and cloud cover suit Arabica (a more delicate, higher-altitude species than the hardier, more bitter Robusta). \"Locally roasted\" is doing real work in this line — it means the beans are roasted close to point of service rather than shipped pre-roasted from abroad, which matters for freshness.",
-      es: "Granos arábica, tostados localmente, cultivados en Veracruz — uno de los estados productores de café más antiguos de México, con una tradición cafetalera de más de 200 años, concentrada en zonas de altura donde la altitud y la nubosidad favorecen al arábica (una especie más delicada y de mayor altitud que la más resistente y amarga robusta). \"Tueste local\" es una frase que dice algo concreto en esta línea — significa que los granos se tuestan cerca del punto de servicio en lugar de llegar pre-tostados desde el extranjero, lo cual importa para la frescura." },
-    { term: "Puebla Springs Water", en_t: "Puebla Springs Water", es_t: "Agua Puebla Springs",
-      en: "Bonsai's still and sparkling water program is a named source — Puebla Springs — rather than an unbranded bottle, which is why it appears on the menu with that name attached rather than just \"water.\" Worth knowing if a guest asks what they're being served, or asks for something other than tap.",
-      es: "El programa de agua natural y mineral de Bonsai tiene una fuente con nombre — Puebla Springs — en lugar de ser una botella sin marca, razón por la que aparece en el menú con ese nombre en lugar de solo \"agua.\" Vale la pena saberlo si un cliente pregunta qué se le está sirviendo, o pide algo distinto al agua de la llave." },
-    { term: "Sashimi-Grade", en_t: "Sashimi-Grade", es_t: "Grado Sashimi",
-      en: "Not a legal or regulated term anywhere — it's a supplier's claim about handling (flash-frozen to kill parasites, or handled with a cold chain tight enough to serve raw with confidence), not a government-certified category. Bonsai's own cold-chain and time/temp discipline is what actually backs the claim in-house — see Food Safety.",
-      es: "No es un término legal ni regulado en ningún lugar — es una afirmación del proveedor sobre el manejo (congelado rápidamente para eliminar parásitos, o manejado con una cadena de frío lo suficientemente estricta para servirse crudo con confianza), no una categoría certificada por el gobierno. La disciplina de cadena de frío y tiempo/temperatura propia de Bonsai es lo que realmente respalda esa afirmación puertas adentro — ver Seguridad Alimentaria." }
-  ],
 
   // -----------------------------------------------------------------------
   // ALLERGEN reference labels
@@ -335,8 +304,8 @@ const BONSAI = {
   // -----------------------------------------------------------------------
   safety: [
     { en_t: "Raw & Cold-Chain Fish Handling", es_t: "Manejo de Pescado Crudo y Cadena de Frío",
-      en: "Every plate that leaves this counter with sashimi, smoked salmon, or the smoked fish platter runs on time and temperature — not judgment. Use dedicated boards and utensils for raw fish, kept separate from bagel, salad, and dry-goods prep, at all times.",
-      es: "Cada plato que sale de este mostrador con sashimi, salmón ahumado o el smoked fish platter se rige por tiempo y temperatura — no por criterio personal. Usa tablas y utensilios exclusivos para pescado crudo, separados en todo momento de la preparación de bagels, ensaladas y productos secos.",
+      en: "Every plate that leaves this counter with sashimi, smoked salmon, or the smoked fish platter runs on time and temperature — not judgment. Use dedicated boards and utensils for raw fish, kept separate from bagel, salad, and dry-goods prep, at all times. \"Sashimi-grade\" itself is not a legal or regulated term anywhere — it's a supplier's claim about handling (flash-frozen to kill parasites, or handled with a cold chain tight enough to serve raw with confidence), not a government-certified category. Bonsai's own cold-chain and time/temp discipline below is what actually backs the claim in-house.",
+      es: "Cada plato que sale de este mostrador con sashimi, salmón ahumado o el smoked fish platter se rige por tiempo y temperatura — no por criterio personal. Usa tablas y utensilios exclusivos para pescado crudo, separados en todo momento de la preparación de bagels, ensaladas y productos secos. \"Grado sashimi\" en sí no es un término legal ni regulado en ningún lugar — es una afirmación del proveedor sobre el manejo (congelado rápidamente para eliminar parásitos, o manejado con una cadena de frío lo suficientemente estricta para servirse crudo con confianza), no una categoría certificada por el gobierno. La disciplina de cadena de frío y tiempo/temperatura de Bonsai que sigue es lo que realmente respalda esa afirmación puertas adentro.",
       pending_en: "Exact hold-time and discard-window thresholds are being finalized by the kitchen against real service data and will replace this line once signed off. Do not improvise a number in the meantime — ask a manager.",
       pending_es: "Los límites exactos de tiempo de espera y las ventanas de descarte están siendo definidos por cocina con datos reales de servicio y sustituirán esta línea una vez aprobados. No improvises una cifra mientras tanto — pregunta a un gerente." },
     { en_t: "Cold-Chain Power-Failure Protocol", es_t: "Protocolo de Falla Eléctrica en la Cadena de Frío",
@@ -399,7 +368,7 @@ const BONSAI = {
     },
     { group_en: "Smoked Fish — Coming Later", group_es: "Pescado Ahumado — Próximamente",
       items: [
-        { name: "Balik Cut Smoked Salmon", en: "Premium upper-center loin, trimmed — potential bestseller. See Ingredient Notebook.", es: "Lomo superior central premium, recortado — posible más vendido. Ver Cuaderno de Ingredientes." },
+        { name: "Balik Cut Smoked Salmon", en: "The premium upper-center loin of the salmon, trimmed of belly fat and bloodline — the single best-marbled, most consistent section of the fish. \"Balik\" is a Turkish/Russian smoked-salmon term for exactly this cut. Potential bestseller once launched.", es: "El lomo superior central del salmón, recortado de la grasa de la ventresca y la línea de sangre — la sección con el marmoleo más rico y consistente. \"Balik\" es un término turco/ruso para el salmón ahumado que designa precisamente este corte. Posible más vendido una vez lanzado." },
         { name: "Smoked Tuna", en: "", es: "" }
       ]
     },
@@ -418,10 +387,10 @@ const BONSAI = {
       ]
     },
     { group_en: "Caviar", group_es: "Caviar",
-      items: [{ name: "Caviar de Monte", en: "Sourced and resold. See Ingredient Notebook.", es: "Se compra y se revende. Ver Cuaderno de Ingredientes." }]
+      items: [{ name: "Caviar de Monte", en: "Sourced and resold, not produced in-house — worth knowing if a guest asks whether Bonsai cures its own caviar (it doesn't; the smokehouse craft is the fish, not the roe).", es: "Se compra y se revende, no se produce en casa — vale la pena saberlo si un cliente pregunta si Bonsai cura su propio caviar (no lo hace; el oficio del ahumadero es el pescado, no la hueva)." }]
     },
     { group_en: "Condiments & Toppings", group_es: "Condimentos y Toppings",
-      items: [{ name: "Salmon Furikake", en: "See Ingredient Notebook.", es: "Ver Cuaderno de Ingredientes." }]
+      items: [{ name: "Salmon Furikake", en: "A dry Japanese seasoning blend — classically sesame, seaweed, and dried fish flakes — scattered over rice. This retail-case version is built around salmon, a condiment for guests to take home.", es: "Una mezcla seca de condimentos japoneses — clásicamente ajonjolí, alga y hojuelas de pescado seco — que se espolvorea sobre el arroz. Esta versión de la vitrina está hecha a base de salmón, un condimento para llevar a casa." }]
     },
     { group_en: "Outside Fridge", group_es: "Fuera del Refrigerador",
       items: [{ name: "Organic Honey", en: "Brand and size TBC.", es: "Marca y tamaño por confirmar." }]

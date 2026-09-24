@@ -95,6 +95,7 @@ function renderFoodLike(dataset, titleEn, titleEs, subEn, subEs){
     html += `<div class="grouphead" data-group>
       <div class="groupheading">${esc(t(group.group_en, group.group_es))}</div>`;
     if(group.lede_en) html += `<div class="grouplede">${esc(t(group.lede_en, group.lede_es))}</div>`;
+    if(group.group_en === 'Tea') html += renderTeaComparisonTable();
     html += `<div class="itemlist">`;
     group.items.forEach(item => {
       uid++;
@@ -123,7 +124,9 @@ function renderFoodLike(dataset, titleEn, titleEs, subEn, subEs){
         </div>
       </div>`;
     });
-    html += `</div></div>`;
+    html += `</div>`;
+    if(group.note_en) html += `<div class="note-block" style="margin-top:10px;">${esc(t(group.note_en, group.note_es))}</div>`;
+    html += `</div>`;
   });
   html += `</div>`;
   const trailingNote = dataset.find(g => g.note_en && !g.items);
@@ -168,36 +171,9 @@ function renderTeaComparisonTable(){
     <div class="groupheading">${esc(t('Tea Comparison — Quick Reference','Comparación de Tés — Referencia Rápida'))}</div>
     <div class="grouplede">${esc(t(tg.intro_en, tg.intro_es))}</div>
     ${table}
+    ${tg.caffeineRank_en ? `<div class="note-block" style="max-width:680px;margin:0 auto 14px;font-weight:600;">${esc(t(tg.caffeineRank_en, tg.caffeineRank_es))}</div>` : ''}
     <div class="note-block" style="max-width:680px;margin:14px auto 26px;">${esc(t(tg.tip_en, tg.tip_es))}</div>
   `;
-}
-
-function renderIngredients(){
-  let html = `
-    <div class="section-head">
-      <div class="eyebrow">${esc(t('Educational Reference','Referencia Educativa'))}</div>
-      <h1 class="pagetitle">${esc(t('Ingredient Notebook','Cuaderno de Ingredientes'))}</h1>
-      <div class="subtitle">${esc(t('The rare, the obscure, and the easily-mispronounced.','Lo raro, lo poco conocido y lo difícil de pronunciar.'))}</div>
-    </div>
-    ${renderTeaComparisonTable()}
-    <div class="searchbar"><input type="text" id="searchbox" placeholder="${esc(t('Search ingredients…','Buscar ingredientes…'))}" oninput="filterItems(this.value)"></div>
-    <div id="itemcontainer"><div class="itemlist">`;
-  BONSAI.ingredients.forEach((ing, i) => {
-    const id = 'ing' + i;
-    const searchText = (ing.term + ' ' + ing.en + ' ' + ing.es).toLowerCase();
-    html += `<div class="item" id="${id}" data-search="${esc(searchText)}">
-      <div class="item-head" onclick="toggleItem('${id}')">
-        <div class="item-title"><h3>${esc(t(ing.en_t, ing.es_t))}</h3></div>
-        <div class="item-chevron">▶</div>
-      </div>
-      <div class="item-body"><div class="item-body-inner">
-        <p>${esc(t(ing.en, ing.es))}</p>
-        ${ing.note_en ? `<div class="pending">${esc(t(ing.note_en, ing.note_es))}</div>` : ''}
-      </div></div>
-    </div>`;
-  });
-  html += `</div></div>`;
-  return html;
 }
 
 function renderAllergens(){
@@ -387,7 +363,6 @@ function render(){
       app.innerHTML = renderFoodLike(BONSAI.beverage, 'Beverage Guide', 'Guía de Bebidas',
         'Tea, coffee, and refreshments — hot and iced', 'Té, café y bebidas refrescantes — calientes y frías');
       break;
-    case 'ingredients': app.innerHTML = renderIngredients(); break;
     case 'allergens': app.innerHTML = renderAllergens(); break;
     case 'safety': app.innerHTML = renderSafety(); break;
     case 'service': app.innerHTML = renderService(); break;
