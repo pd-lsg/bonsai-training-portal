@@ -7,6 +7,22 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
 
+# data.js and app.js change on every content round. Without this, the browser
+# (and Netlify's CDN) can hold onto an old cached copy indefinitely, which is
+# why an edit can go live but a phone or browser still shows the old text —
+# it never asked the server if anything changed. "no-cache" here does NOT mean
+# "don't cache" — it means always check back with the server first, so a real
+# change shows up on the very next load instead of silently sitting cached.
+[[headers]]
+  for = "/data.js"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+[[headers]]
+  for = "/app.js"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
