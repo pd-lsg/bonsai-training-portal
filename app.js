@@ -24,8 +24,14 @@ function goHome(){ location.hash = ''; }
 
 function photoBlock(path, altEn, altEs){
   if(!path) return '';
+  // Photo is NOT fetched until the card is actually opened (see toggleItem) — the
+  // src lives in data-src only. Menu photos are full-resolution phone shots, and
+  // this card sits collapsed behind a tap; loading every photo on page render
+  // (which is what a plain <img src> does, even while display:none) is what was
+  // making the guide feel slow on mobile — dozens of multi-MB downloads firing
+  // at once regardless of whether a guest or staffer ever opens that card.
   return `<div class="item-photo">
-    <img src="photos/${path}" alt="${esc(t(altEn,altEs))}"
+    <img data-src="photos/${path}" alt="${esc(t(altEn,altEs))}" loading="lazy" decoding="async"
       onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
     <div class="placeholder" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:6px;">
       <span style="font-size:22px;">📷</span>
@@ -46,7 +52,14 @@ function allergenPills(codes){
 
 function toggleItem(id){
   const el = document.getElementById(id);
-  if(el) el.classList.toggle('open');
+  if(!el) return;
+  el.classList.toggle('open');
+  if(el.classList.contains('open')){
+    el.querySelectorAll('img[data-src]').forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    });
+  }
 }
 
 // ---------------------------------------------------------------------
@@ -95,6 +108,10 @@ function renderFoodLike(dataset, titleEn, titleEs, subEn, subEs){
     html += `<div class="grouphead" data-group>
       <div class="groupheading">${esc(t(group.group_en, group.group_es))}</div>`;
     if(group.lede_en) html += `<div class="grouplede">${esc(t(group.lede_en, group.lede_es))}</div>`;
+    if(group.calloutTitle_en) html += `<div class="callout">
+      <div class="callout-title">${esc(t(group.calloutTitle_en, group.calloutTitle_es))}</div>
+      <div class="callout-body">${esc(t(group.callout_en, group.callout_es))}</div>
+    </div>`;
     if(group.group_en === 'Tea') html += renderTeaComparisonTable();
     html += `<div class="itemlist">`;
     group.items.forEach(item => {
