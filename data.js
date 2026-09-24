@@ -26,7 +26,8 @@ const BONSAI = {
     team: [
       { role: { en: "Chef & Co-Founder", es: "Chef y Cofundador" }, name: "Jair Gudiño Chávez" },
       { role: { en: "Co-Founder & Beverage", es: "Cofundadora y Bebidas" }, name: "Mariana Niño" },
-      { role: { en: "Lodestar Group — Operating Advisor", es: "Lodestar Group — Asesor de Operaciones" }, name: "Paul Downie" }
+      { role: { en: "Partner", es: "Socio" }, name: "Paul Downie" },
+      { role: { en: "Partner", es: "Socio" }, name: "James Hartshorn" }
     ]
   },
 
@@ -304,13 +305,13 @@ const BONSAI = {
   // -----------------------------------------------------------------------
   safety: [
     { en_t: "Raw & Cold-Chain Fish Handling", es_t: "Manejo de Pescado Crudo y Cadena de Frío",
-      en: "Every plate that leaves this counter with sashimi, smoked salmon, or the smoked fish platter runs on time and temperature — not judgment. Use dedicated boards and utensils for raw fish, kept separate from bagel, salad, and dry-goods prep, at all times. \"Sashimi-grade\" itself is not a legal or regulated term anywhere — it's a supplier's claim about handling (flash-frozen to kill parasites, or handled with a cold chain tight enough to serve raw with confidence), not a government-certified category. Bonsai's own cold-chain and time/temp discipline below is what actually backs the claim in-house.",
-      es: "Cada plato que sale de este mostrador con sashimi, salmón ahumado o el smoked fish platter se rige por tiempo y temperatura — no por criterio personal. Usa tablas y utensilios exclusivos para pescado crudo, separados en todo momento de la preparación de bagels, ensaladas y productos secos. \"Grado sashimi\" en sí no es un término legal ni regulado en ningún lugar — es una afirmación del proveedor sobre el manejo (congelado rápidamente para eliminar parásitos, o manejado con una cadena de frío lo suficientemente estricta para servirse crudo con confianza), no una categoría certificada por el gobierno. La disciplina de cadena de frío y tiempo/temperatura de Bonsai que sigue es lo que realmente respalda esa afirmación puertas adentro.",
+      en: "Every plate that leaves this counter with cured, cold-smoked salmon or trout — the Smokehouse cuts, the smoked fish platter, the sandwiches and toasts built on them — runs on time and temperature, not judgment. Use dedicated boards and utensils for raw fish, kept separate from bagel, salad, and dry-goods prep, at all times. A \"raw-grade\" claim about a fish is not a legal or regulated term anywhere — they're a supplier's claim about handling (flash-frozen to kill parasites, or handled with a cold chain tight enough to serve raw with confidence), not a government-certified category. Bonsai's own cold-chain and time/temp discipline below is what actually backs that standard in-house.",
+      es: "Cada plato que sale de este mostrador con salmón o trucha curados y ahumados en frío — los cortes de El Ahumadero, el smoked fish platter, los sándwiches y toasts hechos con ellos — se rige por tiempo y temperatura, no por criterio personal. Usa tablas y utensilios exclusivos para pescado crudo, separados en todo momento de la preparación de bagels, ensaladas y productos secos. Una afirmación de \"grado crudo\" sobre un pescado no es un término legal ni regulado en ningún lugar — es una afirmación del proveedor sobre el manejo (congelado rápidamente para eliminar parásitos, o manejado con una cadena de frío lo suficientemente estricta para servirse crudo con confianza), no una categoría certificada por el gobierno. La disciplina de cadena de frío y tiempo/temperatura de Bonsai que sigue es lo que realmente respalda ese estándar puertas adentro.",
       pending_en: "Exact hold-time and discard-window thresholds are being finalized by the kitchen against real service data and will replace this line once signed off. Do not improvise a number in the meantime — ask a manager.",
       pending_es: "Los límites exactos de tiempo de espera y las ventanas de descarte están siendo definidos por cocina con datos reales de servicio y sustituirán esta línea una vez aprobados. No improvises una cifra mientras tanto — pregunta a un gerente." },
     { en_t: "Cold-Chain Power-Failure Protocol", es_t: "Protocolo de Falla Eléctrica en la Cadena de Frío",
-      en: "Tulum sits in hurricane season. A freezer full of bagels alongside sashimi-grade fish and smoked salmon means one outage without a plan is a solvency event, not an inconvenience.",
-      es: "Tulum está en temporada de huracanes. Un congelador lleno de bagels junto con pescado grado sashimi y salmón ahumado significa que un solo apagón sin plan es un evento que pone en riesgo el negocio, no solo una molestia.",
+      en: "Tulum sits in hurricane season. A freezer full of bagels alongside raw-grade fish and cold-smoked salmon means one outage without a plan is a solvency event, not an inconvenience.",
+      es: "Tulum está en temporada de huracanes. Un congelador lleno de bagels junto con pescado grado crudo y salmón ahumado en frío significa que un solo apagón sin plan es un evento que pone en riesgo el negocio, no solo una molestia.",
       pending_en: "Maximum hold time before mandatory discard, who checks temperatures and when, the backup-power or ice option, and the escalation contact are pending final sign-off — confirm the current version with a manager before relying on it.",
       pending_es: "El tiempo máximo de espera antes del descarte obligatorio, quién revisa las temperaturas y cuándo, la opción de energía de respaldo o hielo, y el contacto de escalamiento están pendientes de aprobación final — confirma la versión vigente con un gerente antes de usarla como referencia." },
     { en_t: "Opening & Closing Checklists", es_t: "Listas de Apertura y Cierre",
@@ -320,14 +321,14 @@ const BONSAI = {
       en: "Wash hands on the frequency set by your manager, and change gloves between handling raw fish and anything else — every time, no exceptions. Staff do not work with raw fish while symptomatic of illness.",
       es: "Lávate las manos con la frecuencia que indique tu gerente, y cambia de guantes entre el manejo de pescado crudo y cualquier otra cosa — siempre, sin excepciones. El personal no trabaja con pescado crudo si presenta síntomas de enfermedad." },
     { en_t: "FIFO Stock Rotation", es_t: "Rotación de Inventario FIFO",
-      en: "Date everything on receipt. Sashimi-grade fish has the shortest shelf life in the building; dry goods the longest. Physically place older stock in front so it's used first — first in, first out, every time, no exceptions for what's \"probably still fine.\"",
-      es: "Fecha todo al recibirlo. El pescado grado sashimi tiene la vida útil más corta de todo el local; los productos secos, la más larga. Coloca físicamente el inventario más antiguo al frente para que se use primero — primero en entrar, primero en salir, siempre, sin excepciones por lo que \"probablemente todavía esté bien.\"" },
+      en: "Date everything on receipt. Raw-grade fish has the shortest shelf life in the building; dry goods the longest. Physically place older stock in front so it's used first — first in, first out, every time, no exceptions for what's \"probably still fine.\"",
+      es: "Fecha todo al recibirlo. El pescado grado crudo tiene la vida útil más corta de todo el local; los productos secos, la más larga. Coloca físicamente el inventario más antiguo al frente para que se use primero — primero en entrar, primero en salir, siempre, sin excepciones por lo que \"probablemente todavía esté bien.\"" },
     { en_t: "Allergen & Ingredient Disclosure", es_t: "Aviso de Alérgenos e Ingredientes",
       en: "This is a Japanese-forward, raw-fish-forward menu — fish, shellfish, gluten, dairy, egg, soy, tree nuts, sesame, and mustard all appear somewhere on it. See Allergens & Dietary for the full matrix and the exact script for what to say when a guest asks.",
       es: "Este es un menú con enfoque japonés y de pescado crudo — pescado, mariscos, gluten, lácteos, huevo, soya, frutos secos, ajonjolí y mostaza aparecen en algún lugar del menú. Ver Alérgenos y Dietas para la matriz completa y el guion exacto de qué decir cuando un cliente pregunte." },
     { en_t: "Delivery-Scope Boundary", es_t: "Límite de Alcance para Entregas/Para Llevar",
-      en: "Bagel & Schmear, Abuelo Bagel, Smoked Fish Toast (wrapped and halved), Gildas, Marinated Olives, and the Smoked Fish Platter (bento format) can leave the building. Sashimi is dine-in only — full stop, no exceptions, regardless of how the request is framed.",
-      es: "Bagel & Schmear, Abuelo Bagel, Smoked Fish Toast (envuelto y cortado a la mitad), Gildas, Marinated Olives y el Smoked Fish Platter (en formato bento) pueden salir del local. El sashimi es exclusivamente para comer en el local — sin excepción, sin importar cómo se plantee la solicitud." }
+      en: "Bagel & Schmear, Abuelo Bagel, Smoked Fish Toast (wrapped and halved), Gildas, Marinated Olives, and the Smoked Fish Platter (bento format) can leave the building.",
+      es: "Bagel & Schmear, Abuelo Bagel, Smoked Fish Toast (envuelto y cortado a la mitad), Gildas, Marinated Olives y el Smoked Fish Platter (en formato bento) pueden salir del local." }
   ],
 
   // -----------------------------------------------------------------------
@@ -337,7 +338,7 @@ const BONSAI = {
     { en_t: "Greet Every Guest", es_t: "Saluda a Cada Cliente",
       en: "This is counter service, not table service — the greeting is the whole first impression, delivered in one interaction, not built up over a seated visit. Make it count: warm, direct, unhurried even when the line isn't.",
       es: "Este es servicio de mostrador, no de mesa — el saludo es toda la primera impresión, entregada en una sola interacción, no construida a lo largo de una visita sentada. Que cuente: cálido, directo, sin prisas aunque la fila sí la tenga." },
-    { en_t: "Tell the Sashimi Story", es_t: "Cuenta la Historia del Sashimi",
+    { en_t: "Tell the Cold-Smoking Story", es_t: "Cuenta la Historia del Ahumado en Frío",
       en: "Guests are meeting a Japanese-forward, raw-fish-forward beverage and food program in Tulum — most haven't seen this combination before. A short, confident explanation of what cold-smoking is and why the fish is sliced, not cooked, does more work than a long one.",
       es: "Los clientes están conociendo un programa de comida y bebida con enfoque japonés y de pescado crudo, en Tulum — la mayoría no ha visto antes esta combinación. Una explicación breve y segura de qué es el ahumado en frío y por qué el pescado se corta y no se cocina, funciona mejor que una larga." },
     { en_t: "Offer the Swap, Don't Wait to Be Asked", es_t: "Ofrece la Sustitución, No Esperes a que Pregunten",
@@ -347,8 +348,8 @@ const BONSAI = {
       en: "When describing an ingredient's origin, tell guests what it is, not where it came from in the kitchen. \"Flecked with pieces of Bonsai Reserve\" is an upsell; \"cured from slicing trim\" sounds like an apology for the same thing. Same fact, told the right way.",
       es: "Al describir el origen de un ingrediente, dile al cliente qué es, no de dónde vino en la cocina. \"Con trozos de Bonsai Reserve\" es una forma de destacar valor; \"curado de los recortes del corte\" suena a disculpa por lo mismo. El mismo hecho, contado de la manera correcta." },
     { en_t: "Know the Delivery-Scope Boundary", es_t: "Conoce el Límite de Alcance para Entregas",
-      en: "Before confirming a take-away or delivery order, check it against the Delivery-Scope Boundary in Food Safety. Sashimi does not leave the building, regardless of how the request is framed.",
-      es: "Antes de confirmar una orden para llevar o a domicilio, verifícala contra el Límite de Alcance para Entregas en Seguridad Alimentaria. El sashimi no sale del local, sin importar cómo se plantee la solicitud." },
+      en: "Before confirming a take-away or delivery order, check it against the Delivery-Scope Boundary in Food Safety — not every item on the menu is built to travel.",
+      es: "Antes de confirmar una orden para llevar o a domicilio, verifícala contra el Límite de Alcance para Entregas en Seguridad Alimentaria — no todos los platillos del menú están hechos para viajar." },
     { en_t: "Escalate, Don't Improvise", es_t: "Escala, No Improvises",
       en: "A guest illness claim, an equipment failure, or a food-safety question that isn't clearly answered here goes to a manager immediately — not a best guess on the floor.",
       es: "Una queja de un cliente por enfermedad, una falla de equipo, o una pregunta de seguridad alimentaria que no esté claramente respondida aquí, se escala de inmediato a un gerente — no se resuelve con una suposición en el mostrador." }
